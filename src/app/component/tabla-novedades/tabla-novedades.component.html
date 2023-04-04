@@ -1,0 +1,47 @@
+<section class="d-flex flex-column">
+    <!------------     TITULO TABLA    ----------->
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h2 id="tituloBancor">Notificaciones</h2>
+    </div>
+    <!------------     /TITULO TABLA    ----------->
+    
+    
+    
+    <!------------ TABLA ----------->
+    <div class="table-responsive" style="height:50vh">
+      <table class="table table-sm table-hover">
+        <!------------ Columnas ----------->
+        <thead>
+          <tr>
+            <th scope="col">#ID</th>
+            <th scope="col">Fecha Creacion</th>
+            <th scope="col">Active</th>
+            <th scope="col">CID</th>
+            <th scope="col">Sitio</th>
+            <th scope="col">Descripcion</th>
+          </tr>
+        </thead>
+        <!------------ /Columnas ----------->
+    
+        <!------------ Registros ----------->
+        <tbody>
+          <tr *ngFor="let evento of data; let i=index" [ngClass]="{'table-primary': filaActiva.active === true && filaActiva.index === i}" (click)="RowSelected(evento, i)">
+            <td>{{evento.id}}</td>
+            <td>{{evento.fecha}}</td>
+            <td>{{evento.active}}</td>
+            <td>{{evento.cidSitio}}</td>
+            <td>{{evento.sitio}}</td>
+            <td>{{evento.descripcion}}</td>
+          </tr>
+        </tbody>
+        <!------------ /Registros ----------->
+      </table>
+    </div>
+    <!------------     /TABLA    ----------->
+    
+    <button type="button" data-bs-toggle="modal" data-bs-target="#registro" class="btn btn-outline-secondary ml-5 mt-4 align-self-center">
+        Ver detalles - Test
+    </button>
+    
+    <app-tabla-modal [selectedRow]="selectedUser"></app-tabla-modal>
+</section>

@@ -20,6 +20,8 @@ import { ContactosComponent } from './component/contactos/contactos.component';
 import { ContactosContentComponent } from './component/contactos-content/contactos-content.component';
 import { IvecoComponent } from './component/iveco/iveco.component';
 import { IvecoContentComponent } from './component/iveco/iveco-content/iveco-content.component';
+import { TablaNovedadesComponent } from './component/tabla-novedades/tabla-novedades.component';
+import { TablaModalComponent } from './component/tabla-novedades/tabla-modal/tabla-modal.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { IvecoContentComponent } from './component/iveco/iveco-content/iveco-con
     ContactosContentComponent,
     FilterContactoPipe,
     IvecoComponent,
-    IvecoContentComponent
+    IvecoContentComponent,
+    TablaNovedadesComponent,
+    TablaModalComponent
   ],
   imports: [
     BrowserModule,
