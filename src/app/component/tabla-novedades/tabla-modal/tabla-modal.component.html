@@ -9,77 +9,78 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="LimpiarSelected()"></button>
         </div>
         <!-- /TITULO -->
-
+        
         <!-- BODY -->
         <div class="modal-body">
-            <form class="row g-3 needs-validation" novalidate>
-                <button (click)="MostrarSelected()" class="col-12 text-center btn bg-primary-subtle mx-auto">Mostrar ficha</button>
-                <div class="col-md-6">
-                  <label for="validationInput01" class="form-label" >CID</label>
-                  <input type="text" class="form-control" id="validationInput01" value="{{infoAMostrar.cidSitio}}" required>
-                  <div class="valid-feedback">
-                    Todo bien!
-                  </div>
-                </div>
+          <form class="needs-validation container" novalidate>
+            
+            <div class="visually-hidden row pb-4 alert alert-warning" role="alert">No hay evento seleccionado</div>
 
-                <div class="col-md-6">
-                  <label for="validationInput02" class="form-label">Sucursal</label>
-                  <input type="text" class="form-control" id="validationInput02" value="{{infoAMostrar.sitio}}" required>
-                  <div class="valid-feedback">
-                    Todo bien!
-                  </div>
+            <div class="row g-3 pb-4">  
+              <button (click)="MostrarSelected()" class="col-12 text-center btn bg-primary-subtle mx-auto">Mostrar ficha</button>
+            </div>
+            
+            <div class="row ">
+              <div class="col-md-4 ">
+                <label for="validationCustom03" class="form-label">Estado</label>
+                <input type="text" class="form-control" id="validationCustom03" value="{{infoAMostrar.active}}" required>
+                <div class="invalid-feedback">
+                  Please provide a valid city.
                 </div>
-
-                <div class="col-md-4">
-                  <label for="validationCustomUsername" class="form-label">Descripcion</label>
-                  <div class="input-group has-validation">
-                    <input type="text" class="form-control" id="validationCustomUsername" value="{{infoAMostrar.descripcion}}" required>
-                    <div class="invalid-feedback">
-                      Please choose a username.
-                    </div>
-                  </div>
+              </div>
+              
+              <div class="col-md-6">
+                <label for="validationCustom05" class="form-label">Fecha de informe</label>
+                <input type="date" class="form-control" id="validationCustom05" value="{{infoAMostrar.fecha}}">
+                <div class="invalid-feedback">
+                  Please provide a valid zip.
                 </div>
+              </div>
+              <p (click)="MostrarFechaConsola()">Clickea</p>
 
-                <div class="col-md-6">
-                  <label for="validationCustom03" class="form-label">Estado</label>
-                  <input type="text" class="form-control" id="validationCustom03" value="{{infoAMostrar.active}}" required>
+
+              <div class="col-md-3">
+                <label for="validationInput01" class="form-label" >CID</label>
+                <input type="text" class="form-control" id="validationInput01" value="{{infoAMostrar.cidSitio}}" required>
+                <div class="valid-feedback">
+                  Todo bien!
+                </div>
+              </div>
+              
+              <div class="col-md-9">
+                <label for="validationInput02" class="form-label">Sucursal</label>
+                <input type="text" class="form-control" id="validationInput02" value="{{infoAMostrar.sitio}}" required>
+                <div class="valid-feedback">
+                  Todo bien!
+                </div>
+              </div>
+              
+              
+              
+              <div class="col-md-12">
+                <label for="validationCustomUsername" class="form-label">Descripcion</label>
+                <div class="input-group has-validation">
+                  <input type="text" class="form-control" id="validationCustomUsername" value="{{infoAMostrar.descripcion}}" required>
                   <div class="invalid-feedback">
-                    Please provide a valid city.
+                    Please choose a username.
                   </div>
                 </div>
-
-                <div class="col-md-3">
-                  <label for="validationCustom04" class="form-label">State</label>
-                  <select class="form-select" id="validationCustom04" required>
-                    <option selected disabled value="">Choose...</option>
-                    <option>...</option>
-                  </select>
+              </div>
+              
+              <div class="visually-hidden col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                  <label class="form-check-label" for="invalidCheck">
+                    Agree to terms and conditions
+                  </label>
                   <div class="invalid-feedback">
-                    Please select a valid state.
+                    You must agree before submitting.
                   </div>
                 </div>
-
-                <div class="col-md-3">
-                  <label for="validationCustom05" class="form-label">Zip</label>
-                  <input type="text" class="form-control" id="validationCustom05" required>
-                  <div class="invalid-feedback">
-                    Please provide a valid zip.
-                  </div>
-                </div>
-
-                <div class="visually-hidden col-12">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                    <label class="form-check-label" for="invalidCheck">
-                      Agree to terms and conditions
-                    </label>
-                    <div class="invalid-feedback">
-                      You must agree before submitting.
-                    </div>
-                  </div>
-                </div>
-
-              </form>
+              </div>
+            </div>
+                
+            </form>
         </div>
         <!-- /BODY -->
 
