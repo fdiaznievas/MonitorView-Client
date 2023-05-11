@@ -27,6 +27,6 @@ export class TablaModalComponent {
 
   MostrarFechaConsola ():void {
     let prueba :any = document.getElementById("validationCustom05")
-    console.log( prueba.value)
+    console.log(prueba.value)
   }
 }

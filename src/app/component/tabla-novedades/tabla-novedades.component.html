@@ -4,11 +4,11 @@
         <h2 id="tituloBancor">Notificaciones</h2>
     </div>
     <!------------     /TITULO TABLA    ----------->
-    
-    
-    
+
+
+
     <!------------ TABLA ----------->
-    <div class="table-responsive" style="height:50vh">
+    <div class="table-responsive border border-dark border-opacity-10 p-3" style="height:60vh">
       <table class="table table-sm table-hover">
         <!------------ Columnas ----------->
         <thead>
@@ -22,7 +22,7 @@
           </tr>
         </thead>
         <!------------ /Columnas ----------->
-    
+
         <!------------ Registros ----------->
         <tbody>
           <tr *ngFor="let evento of data; let i=index" [ngClass]="{'table-primary': filaActiva.active === true && filaActiva.index === i}" (click)="RowSelected(evento, i)">
@@ -38,10 +38,10 @@
       </table>
     </div>
     <!------------     /TABLA    ----------->
-    
+
     <button type="button" data-bs-toggle="modal" data-bs-target="#registro" class="btn btn-outline-secondary ml-5 mt-4 align-self-center">
         Ver detalles - Test
     </button>
-    
+
     <app-tabla-modal [selectedRow]="selectedUser"></app-tabla-modal>
 </section>

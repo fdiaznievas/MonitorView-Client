@@ -9,17 +9,17 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="LimpiarSelected()"></button>
         </div>
         <!-- /TITULO -->
-        
+
         <!-- BODY -->
         <div class="modal-body">
           <form class="needs-validation container" novalidate>
-            
+
             <div class="visually-hidden row pb-4 alert alert-warning" role="alert">No hay evento seleccionado</div>
 
-            <div class="row g-3 pb-4">  
+            <div class="row g-3 pb-4">
               <button (click)="MostrarSelected()" class="col-12 text-center btn bg-primary-subtle mx-auto">Mostrar ficha</button>
             </div>
-            
+
             <div class="row ">
               <div class="col-md-4 ">
                 <label for="validationCustom03" class="form-label">Estado</label>
@@ -28,7 +28,7 @@
                   Please provide a valid city.
                 </div>
               </div>
-              
+
               <div class="col-md-6">
                 <label for="validationCustom05" class="form-label">Fecha de informe</label>
                 <input type="date" class="form-control" id="validationCustom05" value="{{infoAMostrar.fecha}}">
@@ -46,7 +46,7 @@
                   Todo bien!
                 </div>
               </div>
-              
+
               <div class="col-md-9">
                 <label for="validationInput02" class="form-label">Sucursal</label>
                 <input type="text" class="form-control" id="validationInput02" value="{{infoAMostrar.sitio}}" required>
@@ -54,9 +54,9 @@
                   Todo bien!
                 </div>
               </div>
-              
-              
-              
+
+
+
               <div class="col-md-12">
                 <label for="validationCustomUsername" class="form-label">Descripcion</label>
                 <div class="input-group has-validation">
@@ -66,7 +66,7 @@
                   </div>
                 </div>
               </div>
-              
+
               <div class="visually-hidden col-12">
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
@@ -79,7 +79,7 @@
                 </div>
               </div>
             </div>
-                
+
             </form>
         </div>
         <!-- /BODY -->
@@ -87,7 +87,7 @@
         <!-- FOOTER -->
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="LimpiarSelected()">Cerrar</button>
-          <button type="submit" class="visually-hidden btn btn-outline-secondary" (click)="LimpiarSelected()">Entendido</button>
+          <a class="btn btn-outline-secondary nav-link active pt-2 pb-2" aria-current="page" href="http://10.19.16.129:3005/contactos">Abrir REST API</a>
         </div>
         <!-- /FOOTER -->
 
