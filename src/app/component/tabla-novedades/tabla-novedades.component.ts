@@ -7,7 +7,13 @@ import { DbService } from 'src/app/db.service';
   styleUrls: ['./tabla-novedades.component.css']
 })
 export class TablaNovedadesComponent implements OnInit{
-  constructor(private servicio:DbService){ }
+
+  constructor(private servicio:DbService){
+
+    this.servicio.getData().subscribe( response => {
+      this.data = response; //response.notificaciones
+    });
+  }
 
   filaActiva:any = {"active": false, "index": -1};
   data:any;
@@ -15,10 +21,6 @@ export class TablaNovedadesComponent implements OnInit{
   selectedUser:any;
 
   ngOnInit(): void{
-    this.servicio.getData().subscribe( response => {
-      this.data = response.notificaciones;
-    });
-    console.log(this.data)
   }
   RowSelected(fila:any, indice:any):void{
     this.selectedUser = fila;

@@ -10,16 +10,18 @@ import { DbService } from 'src/app/db.service';
 
 
 export class MainContainerComponent implements OnInit{
-  constructor(private servicio:DbService){ }
-
   data:any;
   selectedUser:any;
+  constructor(private servicio:DbService){
+    this.servicio.getData().subscribe( response => {
+      console.log(response)
+      this.data = response; //response.notificaciones
+    });
+
+   }
+
 
   ngOnInit(): void{
-    this.servicio.getData().subscribe( response => {
-      this.data = response.notificaciones;
-    });
-    console.log(this.data)
   }
   RowSelected(fila:any):void{
     this.selectedUser = fila;

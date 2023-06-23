@@ -7,11 +7,14 @@ import { Observable } from 'rxjs';
 })
 
 export class DbService {
-  private url = './assets/db/MOCK_DATA.json';
+  private url = 'http://10.19.16.129:3005/api/v1/novedades/';
 
-  constructor(private http:HttpClient) {  }
+  constructor(private http:HttpClient) {
+    console.log("DbService")
+  }
 
   getData(): Observable<any> {
-    return this.http.get(this.url);  
+    console.log(this.http.get(this.url))
+    return this.http.get(this.url);
   }
 }

@@ -16,9 +16,7 @@ export class TablaModalComponent {
     if (this.infoAMostrar.id == "vacio") {
     }
     else {
-      
     }
-    console.log(this.selectedRow)  
   }
 
   LimpiarSelected ():void {

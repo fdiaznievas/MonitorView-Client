@@ -27,11 +27,11 @@
         <tbody>
           <tr *ngFor="let evento of data; let i=index" [ngClass]="{'table-primary': filaActiva.active === true && filaActiva.index === i}" (click)="RowSelected(evento, i)">
             <td>{{evento.id}}</td>
-            <td>{{evento.fecha}}</td>
+            <td>{{evento.problemDate}}</td>
             <td>{{evento.active}}</td>
-            <td>{{evento.cidSitio}}</td>
+            <td>{{evento.cid}}</td>
             <td>{{evento.sitio}}</td>
-            <td>{{evento.descripcion}}</td>
+            <td>{{evento.description}}</td>
           </tr>
         </tbody>
         <!------------ /Registros ----------->
