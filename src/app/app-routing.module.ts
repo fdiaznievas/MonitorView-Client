@@ -5,11 +5,9 @@ import { AtmsDescargadosComponent } from './component/atms-descargados/atms-desc
 import { ContactosComponent } from './component/contactos/contactos.component';
 import { IndexComponent } from './component/index/index.component';
 import { IvecoComponent } from './component/iveco/iveco.component';
-import { TestComponent } from './component/test/test.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
-  { path: 'test', component: TestComponent },
   { path: 'descargados', component: AtmsDescargadosComponent },
   { path: 'atm', component: AtmComponent},
   { path: 'contacto', component: ContactosComponent },

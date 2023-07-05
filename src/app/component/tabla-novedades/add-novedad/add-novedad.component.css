@@ -1,0 +1,38 @@
+.row span {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.row .alert {
+  height: 2.5rem;
+  line-height: 2.5rem;
+  padding: 0 0 0 1rem;
+}
+
+#modal-caseId {
+  width: 7rem;
+}
+#modal-estado {
+  width: 7rem;
+}
+#modal-fecha {
+  width: 11rem;
+}
+#modal-cid {
+  width: 7rem;
+}
+#modal-sucursal {
+  width: 14rem;
+}
+#modal-descripcion {
+  width: 100%;
+  min-height: 7rem;
+}
+#text-descripcion {
+  display: block;
+}
+#descripcion {
+  flex-direction: column;
+}

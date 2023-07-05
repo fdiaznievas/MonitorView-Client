@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DbService } from 'src/app/db.service';
+import { AgendaService } from 'src/app/agenda-service.service';
 
 @Component({
   selector: 'app-contactos-content',
@@ -12,7 +12,7 @@ export class ContactosContentComponent {
   public filtro: string = '';
   public contactos:any;
 
-  constructor(private servicio:DbService){}
+  constructor(private servicio:AgendaService){}
 
   ngOnInit():void {
     this.servicio.getData().subscribe(response => {

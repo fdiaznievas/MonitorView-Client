@@ -14,7 +14,6 @@ export class MainContainerComponent implements OnInit{
   selectedUser:any;
   constructor(private servicio:DbService){
     this.servicio.getData().subscribe( response => {
-      console.log(response)
       this.data = response; //response.notificaciones
     });
 
@@ -25,7 +24,6 @@ export class MainContainerComponent implements OnInit{
   }
   RowSelected(fila:any):void{
     this.selectedUser = fila;
-    console.log(fila);
   }
 
 }

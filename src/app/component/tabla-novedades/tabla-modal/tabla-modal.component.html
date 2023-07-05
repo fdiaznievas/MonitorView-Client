@@ -2,93 +2,107 @@
 <div class="modal fade" id="registro" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
+        <form [formGroup]="formNovedad" (ngSubmit)="onUpdate()">
+          <!-- TITULO -->
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Evento</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="onClose()"></button>
+          </div>
+          <!--  Mensaje alerta de POST OK  -->
+          <div *ngIf="success" class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Guardado!</strong>  Puedes cerrar la ventana.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <!--  Mensaje alerta de POST NO OK  -->
+          <div *ngIf="fail" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Error en la solicitud!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <!-- /TITULO -->
 
-        <!-- TITULO -->
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">Evento</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="LimpiarSelected()"></button>
-        </div>
-        <!-- /TITULO -->
-
-        <!-- BODY -->
-        <div class="modal-body">
-          <form class="needs-validation container" novalidate>
-
-            <div class="visually-hidden row pb-4 alert alert-warning" role="alert">No hay evento seleccionado</div>
+          <!-- BODY -->
+          <div class="modal-body">
+            <div class="visually-hidden row pb-4 alert alert-warning" role="alert">
+              No hay evento seleccionado
+            </div>
 
             <div class="row g-3 pb-4">
-              <button (click)="MostrarSelected()" class="col-12 text-center btn bg-primary-subtle mx-auto">Mostrar ficha</button>
+              <button type="button" (click)="MostrarSelected()" class="col-12 text-center btn bg-primary-subtle mx-auto">Mostrar Ficha</button>
             </div>
 
             <div class="row ">
-              <div class="col-md-4 ">
-                <label for="validationCustom03" class="form-label">Estado</label>
-                <input type="text" class="form-control" id="validationCustom03" value="{{infoAMostrar.active}}" required>
-                <div class="invalid-feedback">
-                  Please provide a valid city.
-                </div>
+              <span class="col-md-4">
+                <label for="modal-estado" class="form-label">Estado</label>
+                <input type="text" formControlName="estado" class="form-control" id="modal-estado" required placeholder="true o false">
+              </span>
+              <div class="alert alert-danger mt-2" role="alert" [hidden]="active.valid || !active.dirty">
+                Valores permitidos: "true" o "false"
+              </div>
+              <div class="visually-hidden alert alert-success mt-2" role="alert" [hidden]="!active.valid">
+                Todo bien!
               </div>
 
-              <div class="col-md-6">
-                <label for="validationCustom05" class="form-label">Fecha de informe</label>
-                <input type="date" class="form-control" id="validationCustom05" value="{{infoAMostrar.fecha}}">
-                <div class="invalid-feedback">
-                  Please provide a valid zip.
-                </div>
+              <span class="col-md-8 ">
+                <label for="modal-fecha" class="form-label">Fecha de informe</label>
+                <input type="datetime-local" [value]="formNovedad.get('problemDate')?.value | formatoFecha" formControlName="problemDate" class="form-control" id="modal-fecha">
+              </span>
+              <div class="alert alert-danger mt-2" role="alert" [hidden]="problemDate.valid || !problemDate.dirty">
+                Valores permitidos: 1 - 0
+              </div>
+              <div class="visually-hidden alert-success mt-2" role="alert" [hidden]="!problemDate.valid">
+                Todo bien!
               </div>
 
-
-              <div class="col-md-3">
-                <label for="validationInput01" class="form-label" >CID</label>
-                <input type="text" class="form-control" id="validationInput01" value="{{infoAMostrar.cidSitio}}" required>
-                <div class="valid-feedback">
-                  Todo bien!
-                </div>
+              <span class="col-md-3">
+                <label for="modal-cid" class="form-label">CID</label>
+                <input type="text" formControlName="cid" class="form-control" id="modal-cid" required>
+              </span>
+              <div class="alert alert-danger mt-2" role="alert" [hidden]="cid.valid || !cid.dirty">
+                Colocar CID: Ej. "340"
+              </div>
+              <div class="visually-hidden alert alert-success mt-2" role="alert" [hidden]="!cid.valid">
+                Todo bien!
               </div>
 
-              <div class="col-md-9">
-                <label for="validationInput02" class="form-label">Sucursal</label>
-                <input type="text" class="form-control" id="validationInput02" value="{{infoAMostrar.sitio}}" required>
-                <div class="valid-feedback">
-                  Todo bien!
-                </div>
+              <span class="col-md-9">
+                <label for="modal-sucursal" class="form-label">Sucursal</label>
+                <input type="text" formControlName="sitio" class="form-control" id="modal-sucursal" required placeholder="nombre sucursal">
+              </span>
+              <div class="alert alert-danger mt-2" role="alert" [hidden]="sitio.valid || !sitio.dirty">
+                Valores permitidos: 1 - 0
+              </div>
+              <div class="visually-hidden alert alert-success mt-2" role="alert" [hidden]="!sitio.valid">
+                Todo bien!
               </div>
 
-
-
-              <div class="col-md-12">
-                <label for="validationCustomUsername" class="form-label">Descripcion</label>
-                <div class="input-group has-validation">
-                  <input type="text" class="form-control" id="validationCustomUsername" value="{{infoAMostrar.descripcion}}" required>
-                  <div class="invalid-feedback">
-                    Please choose a username.
-                  </div>
+              <span class="col-md-12 text-wrap" id="descripcion">
+                <label for="modal-descripcion" class="form-label">Descripcion</label>
+                <div id="text-descripcion" class="input-group has-validation">
+                  <textarea type="text" formControlName="description" class="form-control" id="modal-descripcion" required></textarea>
                 </div>
+              </span>
+              <div class="alert alert-danger mt-2" role="alert" [hidden]="description.valid || !description.dirty">
+                Minimo de caracteres: 10
               </div>
 
               <div class="visually-hidden col-12">
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                  <label class="form-check-label" for="invalidCheck">
-                    Agree to terms and conditions
-                  </label>
-                  <div class="invalid-feedback">
-                    You must agree before submitting.
-                  </div>
                 </div>
               </div>
             </div>
 
-            </form>
-        </div>
-        <!-- /BODY -->
+          </div>
+          <!-- /BODY -->
 
-        <!-- FOOTER -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="LimpiarSelected()">Cerrar</button>
-          <a class="btn btn-outline-secondary nav-link active pt-2 pb-2" aria-current="page" href="http://10.19.16.129:3005/api/v1/novedades/">Abrir REST API</a>
-        </div>
-        <!-- /FOOTER -->
+          <!-- FOOTER -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="onClose()">Cerrar</button>
+            <button type="submit" [disabled]="disabledButtons" class="btn btn-primary" data-bs-dismiss="modal">Actualizar datos</button>
+            <button type="button" [disabled]="disabledButtons" class="btn btn-danger" data-bs-dismiss="modal" (click)="onDelete()">Eliminar ficha</button>
+          </div>
+          <!-- /FOOTER -->
+        </form>
 
       </div>
     </div>

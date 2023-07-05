@@ -1,0 +1,134 @@
+<!-- Modal -->
+<div class="modal fade" id="add-novedad" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- TITULO -->
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Nueva Novedad</h1>
+        <button (click)="onClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <!-- /TITULO -->
+
+
+      <form [formGroup]="formNovedad" (ngSubmit)="onSubmit()">
+        <!--  Mensaje alerta de POST OK  -->
+        <div *ngIf="success" class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>Guardado!</strong>  Puedes cerrar la ventana.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <!--  Mensaje alerta de POST NO OK  -->
+        <div *ngIf="fail" class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong>Error en la solicitud!</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <!-- BODY -->
+        <div class="modal-body form-group grid gap-0">
+
+          <div class="row">
+            <div>
+              <span>
+                <label for="modal-caseId" class="form-label">CaseId</label>
+                <input type="text" formControlName="caseId" class="form-control" id="modal-caseId" required placeholder="0">
+              </span>
+              <div class="alert alert-danger" role="alert" [hidden]="caseId.valid || !caseId.dirty">
+                Solo números
+              </div>
+              <div class="visually-hidden alert alert-success" role="alert" [hidden]="!caseId.valid">
+                Todo bien!
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <span>
+                <label for="modal-estado" class="form-label">Estado</label>
+                <input type="text" formControlName="estado" class="form-control" id="modal-estado" required placeholder="true">
+              </span>
+              <div class="alert alert-danger mt-2" role="alert" [hidden]="active.valid || !active.dirty">
+                Valores permitidos: "true" o "false"
+              </div>
+              <div class="visually-hidden alert alert-success mt-2" role="alert" [hidden]="!active.valid">
+                Todo bien!
+              </div>
+            </div>
+            <div>
+              <span>
+                <label for="modal-fecha" class="form-label">Fecha de informe</label>
+                <input type="datetime-local" formControlName="problemDate" class="form-control" id="modal-fecha" placeholder="2023">
+              </span>
+              <div class="alert alert-danger mt-2" role="alert" [hidden]="problemDate.valid || !problemDate.dirty">
+                Valores permitidos: 1 - 0
+              </div>
+              <div class="visually-hidden alert-success mt-2" role="alert" [hidden]="!problemDate.valid">
+                Todo bien!
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <span>
+                <label for="modal-cid" class="form-label" >CID</label>
+                <input type="text" formControlName="cid" class="form-control" id="modal-cid" required placeholder="030">
+              </span>
+              <div class="alert alert-danger mt-2" role="alert" [hidden]="cid.valid || !cid.dirty">
+                Colocar CID: Ej. "340"
+              </div>
+              <div class="visually-hidden alert alert-success mt-2" role="alert" [hidden]="!cid.valid">
+                Todo bien!
+              </div>
+            </div>
+            <div>
+              <span>
+                <label for="modal-sucursal" class="form-label">Sucursal</label>
+                <input type="text" formControlName="sitio" class="form-control" id="modal-sucursal" required placeholder="Gcia. Seguridad">
+              </span>
+              <div class="alert alert-danger mt-2" role="alert" [hidden]="sitio.valid || !sitio.dirty">
+                Valores permitidos: 1 - 0
+              </div>
+              <div class="visually-hidden alert alert-success mt-2" role="alert" [hidden]="!sitio.valid">
+                Todo bien!
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <span id="descripcion">
+                <label for="modal-descripcion" class="form-label">Descripcion</label>
+                <div id="text-descripcion" class="input-group has-validation">
+                  <textarea type="text" formControlName="description" class="form-control" id="modal-descripcion" required placeholder="ENLACE CAIDO - Informado por Cedi"></textarea>
+                </div>
+              </span>
+              <div class="alert alert-danger mt-2" role="alert" [hidden]="description.valid || !description.dirty">
+                Minimo de caracteres: 10
+              </div>
+            </div>
+          </div>
+          <div class="visually-hidden col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+              <label class="form-check-label" for="invalidCheck">
+                Agree to terms and conditions
+              </label>
+              <div class="invalid-feedback">
+                You must agree before submitting.
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /BODY -->
+
+        <!-- FOOTER -->
+        <div class="modal-footer">
+          <button (click)="onClose()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <input class="btn btn-primary" type="submit" value="Enviar" [disabled]="formNovedad.invalid">
+        </div>
+        <!-- /FOOTER -->
+
+      </form>
+
+    </div>
+  </div>
+</div>
+<!-- /Modal -->
