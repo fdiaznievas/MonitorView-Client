@@ -21,9 +21,6 @@ export class AddNovedadComponent {
   constructor(private http: HttpClient) {
   }
 
-  get caseId(){
-    return this.formNovedad.get('caseId') as FormControl
-  }
   get active(){
     return this.formNovedad.get('estado') as FormControl
   }
@@ -41,9 +38,6 @@ export class AddNovedadComponent {
   }
 
   formNovedad:FormGroup = new FormGroup({
-    "caseId": new FormControl('', [
-      Validators.required
-    ]),
     "estado": new FormControl('', [
       Validators.required,
       Validators.minLength(4),

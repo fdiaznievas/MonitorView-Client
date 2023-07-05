@@ -3,7 +3,7 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
         <h2 id="tituloBancor">Avisos</h2>
         <a class="btn btn-secondary btn-sm" href="/">Refrescar</a>
-        <button type="button" data-bs-toggle="modal" data-bs-target="#add-novedad" class="btn btn-primary rounded-circle fw-bold">+</button>
+        <button type="button" data-bs-toggle="modal" data-bs-target="#add-novedad" style="background-color: #0a5e3b;border-color: white;" class="btn btn-primary rounded-circle fw-bold">+</button>
     </div>
     <!------------     /TITULO TABLA    ----------->
 
@@ -28,12 +28,12 @@
         <!------------ Columnas ----------->
         <thead>
           <tr>
-            <th scope="col">#ID</th>
-            <th scope="col">Fecha Creacion</th>
-            <th scope="col">Activo</th>
             <th scope="col">CID</th>
             <th scope="col">Sitio</th>
             <th scope="col">Descripcion</th>
+            <th scope="col">Fecha Creacion</th>
+            <th scope="col">Activo</th>
+            <th scope="col">#</th>
           </tr>
         </thead>
         <!------------ /Columnas ----------->
@@ -41,12 +41,12 @@
         <!------------ Registros ----------->
         <tbody>
           <tr *ngFor="let evento of data; let i=index" [ngClass]="{'table-primary': (filaActiva.active === true && filaActiva.index === i), 'table-danger': (evento.estado == true)}" (click)="RowSelected(evento, i)">
-            <td>{{evento.id}}</td>
-            <td>{{evento.problemDate | formatoFecha }}</td>
-            <td>{{evento.estado}}</td>
             <td>{{evento.cid}}</td>
             <td>{{evento.sitio}}</td>
             <td>{{evento.description}}</td>
+            <td>{{evento.problemDate | formatoFecha }}</td>
+            <td>{{evento.estado}}</td>
+            <td>{{evento.id}}</td>
           </tr>
         </tbody>
         <!------------ /Registros ----------->
