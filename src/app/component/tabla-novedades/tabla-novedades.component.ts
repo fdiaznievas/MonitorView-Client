@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DbService } from 'src/app/db.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { Observable, Subject } from 'rxjs';
-import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-tabla-novedades',
@@ -12,11 +10,12 @@ import { tap } from 'rxjs';
 })
 
 export class TablaNovedadesComponent implements OnInit{
-  private _resfresh$ = new Subject<void>();
-
-
+  data:any;
 
   constructor(private servicio:DbService, public _router: Router, public _location: Location){
+  }
+
+  ngOnInit(): void{
     this.servicio.getData().subscribe( response => {
       this.data = response; //response.notificaciones
     });
@@ -26,12 +25,8 @@ export class TablaNovedadesComponent implements OnInit{
   filtro2 = 'desc';
 
   filaActiva:any = {"active": false, "index": -1};
-  data:any;
   mensaje:string = "hola mundo";
   selectedUser:any;
-
-  ngOnInit(): void{
-  }
 
   refresh(): void {
 		this._router.navigateByUrl("contacto", { skipLocationChange: true }).then(() => {

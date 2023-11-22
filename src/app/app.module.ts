@@ -11,7 +11,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { ComponentAngularComponent } from './component/component-angular/component-angular.component';
 import { MainContainerComponent } from './component/main-container/main-container.component';
-import { MenuLateralComponent } from './component/main-container/menu-lateral/menu-lateral.component';
+import { MenuLateralComponent } from './component/menu-lateral/menu-lateral.component';
 import { IndexComponent } from './component/index/index.component';
 import { AtmsDescargadosComponent } from './component/atms-descargados/atms-descargados.component';
 import { AtmComponent } from './component/atm/atm.component';
@@ -23,6 +23,8 @@ import { TablaNovedadesComponent } from './component/tabla-novedades/tabla-noved
 import { TablaModalComponent } from './component/tabla-novedades/tabla-modal/tabla-modal.component';
 import { AddNovedadComponent } from './component/tabla-novedades/add-novedad/add-novedad.component';
 import { FormatoFechaPipe } from './formato-fecha.pipe';
+import { OrderByDatePipe } from './order-by-date.pipe';
+
 
 @NgModule({
   declarations: [
@@ -37,13 +39,14 @@ import { FormatoFechaPipe } from './formato-fecha.pipe';
     AtmComponent,
     ContactosComponent,
     ContactosContentComponent,
-    FilterContactoPipe,
     IvecoComponent,
     IvecoContentComponent,
     TablaNovedadesComponent,
     TablaModalComponent,
     AddNovedadComponent,
-    FormatoFechaPipe
+    FilterContactoPipe,
+    FormatoFechaPipe,
+    OrderByDatePipe
   ],
   imports: [
     BrowserModule,

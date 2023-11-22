@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormGroupDirective } from '@angular/forms';
 import { HttpClient, HttpResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-novedad',
@@ -18,7 +20,7 @@ export class AddNovedadComponent {
 
   urlAPI:string = "http://10.19.16.129:3005/api/v1/novedades/"
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, public _router: Router, public _location: Location) {
   }
 
   get active(){
@@ -82,12 +84,19 @@ export class AddNovedadComponent {
     });
   }
 
+  refresh(): void {
+		this._router.navigateByUrl("contacto", { skipLocationChange: true }).then(() => {
+		console.log(decodeURI(this._location.path()));
+		this._router.navigate([decodeURI(this._location.path())]);
+		});
+	}
+
   public onClose(){
     this.success = false;
     this.fail = false;
     this.formDirective.resetForm();
+    this.refresh();
   }
-
 }
 
 

@@ -1,17 +1,17 @@
-<section class="d-flex flex-column">
+<section class="d-flex flex-column fs-3 px-2">
     <!------------     TITULO TABLA    ----------->
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-        <h2 id="tituloBancor">Avisos</h2>
-        <a class="btn btn-secondary btn-sm" href="/">Refrescar</a>
-        <button type="button" data-bs-toggle="modal" data-bs-target="#add-novedad" style="background-color: #0a5e3b;border-color: white;" class="btn btn-primary rounded-circle fw-bold">+</button>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-3">
+      <a class="btn btn-outline-primary btn-sm me-2 fs-5" href="/">Refrescar</a>
+      <h2 id="tituloBancor" class="fw-bolder" style="margin-left: 1rem;">Avisos</h2>
+      <button type="button" data-bs-toggle="modal" data-bs-target="#add-novedad" class="btn btn-secondary btn-dark btn-lg fw-bold me-4">Agregar +</button>
     </div>
     <!------------     /TITULO TABLA    ----------->
 
 
 
     <!------------ TABLA ----------->
-    <div class="table-responsive border border-dark border-opacity-10 p-3" style="height:60vh">
-      <table class="table table-sm table-hover">
+    <div class="table-responsive border border-dark border-opacity-10" style="height:65vh">
+      <table class="table table-bordered border-dark table-sm table-hover table-striped">
         <div class="visually-hidden row">
           <select class="form-select col" [(ngModel)]="filtro1">
             <option selected>Ordenar por</option>
@@ -26,27 +26,23 @@
           </select>
         </div>
         <!------------ Columnas ----------->
-        <thead>
+        <thead class="table-dark">
           <tr>
             <th scope="col">CID</th>
             <th scope="col">Sitio</th>
             <th scope="col">Descripcion</th>
             <th scope="col">Fecha Creacion</th>
-            <th scope="col">Activo</th>
-            <th scope="col">#</th>
           </tr>
         </thead>
         <!------------ /Columnas ----------->
 
         <!------------ Registros ----------->
-        <tbody>
-          <tr *ngFor="let evento of data; let i=index" [ngClass]="{'table-primary': (filaActiva.active === true && filaActiva.index === i), 'table-danger': (evento.estado == true)}" (click)="RowSelected(evento, i)">
+        <tbody class="table-group-divider">
+          <tr *ngFor="let evento of data | orderByDate; let i = index;" class="fw-semibold" [ngClass]="{'table-primary': (filaActiva.active === true && filaActiva.index === i)}" (click)="RowSelected(evento, i)">
             <td>{{evento.cid}}</td>
             <td>{{evento.sitio}}</td>
             <td>{{evento.description}}</td>
             <td>{{evento.problemDate | formatoFecha }}</td>
-            <td>{{evento.estado}}</td>
-            <td>{{evento.id}}</td>
           </tr>
         </tbody>
         <!------------ /Registros ----------->
@@ -54,7 +50,7 @@
     </div>
     <!------------     /TABLA    ----------->
 
-    <button type="button" data-bs-toggle="modal" data-bs-target="#registro" class="btn btn-outline-secondary ml-5 mt-4 align-self-center">
+    <button type="button" role="button" data-bs-toggle="modal" data-bs-target="#registro" class="btn btn-primary ml-5 mt-4 align-self-center fs-5" style="margin-bottom: 2rem;">
       Ver detalles
     </button>
     <app-add-novedad></app-add-novedad>

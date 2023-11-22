@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="registro" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade fs-4" id="registro" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <form [formGroup]="formNovedad" (ngSubmit)="onUpdate()">
@@ -27,13 +27,13 @@
             </div>
 
             <div class="row g-3 pb-4">
-              <button type="button" (click)="MostrarSelected()" class="col-12 text-center btn bg-primary-subtle mx-auto">Mostrar Ficha</button>
+              <button type="button" (click)="MostrarSelected()" class="col-12 text-center btn bg-primary-subtle mx-auto fs-4">Mostrar Ficha</button>
             </div>
 
             <div class="row ">
               <span class="col-md-4">
                 <label for="modal-estado" class="form-label">Estado</label>
-                <input type="text" formControlName="estado" class="form-control" id="modal-estado" required placeholder="true o false">
+                <input type="text" formControlName="estado" class="form-control fs-4" id="modal-estado" required placeholder="true o false">
               </span>
               <div class="alert alert-danger mt-2" role="alert" [hidden]="active.valid || !active.dirty">
                 Valores permitidos: "true" o "false"
@@ -44,7 +44,7 @@
 
               <span class="col-md-8 ">
                 <label for="modal-fecha" class="form-label">Fecha de informe</label>
-                <input type="datetime-local" [value]="formNovedad.get('problemDate')?.value | formatoFecha" formControlName="problemDate" class="form-control" id="modal-fecha">
+                <input type="datetime-local" [value]="formNovedad.get('problemDate')?.value | formatoFecha" formControlName="problemDate" class="form-control fs-4" id="modal-fecha">
               </span>
               <div class="alert alert-danger mt-2" role="alert" [hidden]="problemDate.valid || !problemDate.dirty">
                 Valores permitidos: 1 - 0
@@ -55,7 +55,7 @@
 
               <span class="col-md-3">
                 <label for="modal-cid" class="form-label">CID</label>
-                <input type="text" formControlName="cid" class="form-control" id="modal-cid" required>
+                <input type="text" formControlName="cid" class="form-control fs-4" id="modal-cid" placeholder="#" required>
               </span>
               <div class="alert alert-danger mt-2" role="alert" [hidden]="cid.valid || !cid.dirty">
                 Colocar CID: Ej. "340"
@@ -66,7 +66,7 @@
 
               <span class="col-md-9">
                 <label for="modal-sucursal" class="form-label">Sucursal</label>
-                <input type="text" formControlName="sitio" class="form-control" id="modal-sucursal" required placeholder="nombre sucursal">
+                <input type="text" formControlName="sitio" class="form-control fs-4" id="modal-sucursal" required placeholder="nombre sucursal">
               </span>
               <div class="alert alert-danger mt-2" role="alert" [hidden]="sitio.valid || !sitio.dirty">
                 Valores permitidos: 1 - 0
@@ -77,8 +77,8 @@
 
               <span class="col-md-12 text-wrap" id="descripcion">
                 <label for="modal-descripcion" class="form-label">Descripcion</label>
-                <div id="text-descripcion" class="input-group has-validation">
-                  <textarea type="text" formControlName="description" class="form-control" id="modal-descripcion" required></textarea>
+                <div id="text-descripcion" class="input-group has-validation fs-4">
+                  <textarea type="text" formControlName="description" class="form-control fs-4" id="modal-descripcion" required></textarea>
                 </div>
               </span>
               <div class="alert alert-danger mt-2" role="alert" [hidden]="description.valid || !description.dirty">
@@ -87,7 +87,7 @@
 
               <div class="visually-hidden col-12">
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                  <input class="form-check-input fs-4" type="checkbox" value="" id="invalidCheck" required>
                 </div>
               </div>
             </div>
