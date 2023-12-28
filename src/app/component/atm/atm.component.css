@@ -1,9 +1,9 @@
 .sidebar {
-    padding: 48px 0 0; /* Height of navbar */
+  padding: 48px 0 0; /* Height of navbar */
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: 5rem;
   }
-  
-  @media (max-width: 767.98px) {
-    .sidebar {
-      top: 5rem;
-    }
-  }
+}
